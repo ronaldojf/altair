@@ -39,6 +39,7 @@ node_modules
 /connect.lock
 /coverage
 /typings
+/.firebase
 
 # Error logs
 /libpeerconnection.log
