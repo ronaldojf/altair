@@ -1,0 +1,226 @@
+{
+  "version": 1,
+  "type": "collection",
+  "title": "Autentique",
+  "queries": [
+    {
+      "version": 1,
+      "type": "window",
+      "query": "query {\n  me {\n    id\n    name\n    email\n    cpf\n    cnpj\n    company\n    birthday\n    created_at\n  }\n}",
+      "apiUrl": "{{endpointURL}}",
+      "variables": "{}",
+      "subscriptionUrl": "",
+      "headers": [
+        { "key": "Authorization", "value": "Bearer SEU_TOKEN_DE_API" },
+        { "key": "", "value": "" }
+      ],
+      "windowName": "Informações da conta",
+      "preRequestScript": "",
+      "preRequestScriptEnabled": false,
+      "id": "f80f5609-f439-40d5-9dd6-f645c2e8a4a7",
+      "created_at": 1572447004970,
+      "updated_at": 1572447004970
+    },
+    {
+      "version": 1,
+      "type": "window",
+      "query": "mutation CreateDocumentMutation(\n  $document: DocumentInput!,\n  $signers: [SignerInput!]!,\n  $file: Upload!\n) {\n  createDocument(\n    document: $document,\n    signers: $signers,\n    file: $file\n  ) {\n    id\n    name\n    refusable\n    sortable\n    created_at\n    signatures {\n      public_id\n      name\n      email\n      created_at\n      action { name }\n      link { short_link }\n      user { id name email }\n    }\n  }\n}\n",
+      "apiUrl": "{{endpointURL}}",
+      "variables": "{\n  \"document\": {\n    \"name\": \"Contrato de marketing\"\n  },\n  \"signers\": [{\n    \"email\": \"cassiano@autentique.com.br\",\n    \"action\": { \"name\": \"SIGN\" }\n  }, {\n    \"email\": \"ronaldo@autentique.com.br\",\n    \"action\": { \"name\": \"SIGN\" }\n  }]\n}",
+      "subscriptionUrl": "",
+      "headers": [
+        { "key": "Authorization", "value": "Bearer SEU_TOKEN_DE_API" },
+        { "key": "", "value": "" }
+      ],
+      "windowName": "Criar documento",
+      "preRequestScript": "",
+      "preRequestScriptEnabled": false,
+      "id": "25754d43-ec5f-43ca-ab5a-63914816885f",
+      "created_at": 1572447004969,
+      "updated_at": 1572447004969
+    },
+    {
+      "version": 1,
+      "type": "window",
+      "query": "query {\n  document(id: \"\") {\n    id\n    name\n    refusable\n    sortable\n    created_at\n    files { original signed }\n    signatures {\n      public_id\n      name\n      email\n      created_at\n      action { name }\n      link { short_link }\n      user { id name email }\n      email_events {\n        sent\n        opened\n        delivered\n        refused\n        reason\n      }\n      viewed { ...SignatureEvent }\n      signed { ...SignatureEvent }\n      rejected { ...SignatureEvent }\n    }\n  }\n}\n\nfragment SignatureEvent on Event {\n  ipv4\n  ipv6\n  reason\n  created_at\n  geolocation {\n    country\n    countryISO\n    state\n    stateISO\n    city\n    zipcode\n    latitude\n    longitude\n  }\n}",
+      "apiUrl": "{{endpointURL}}",
+      "variables": "{}",
+      "subscriptionUrl": "",
+      "headers": [
+        { "key": "Authorization", "value": "Bearer SEU_TOKEN_DE_API" },
+        { "key": "", "value": "" }
+      ],
+      "windowName": "Resgatar documento",
+      "preRequestScript": "",
+      "preRequestScriptEnabled": false,
+      "id": "b5ae2bcc-bf50-46c2-bf5e-33a2fa459adc",
+      "created_at": 1572447004968,
+      "updated_at": 1572447004968
+    },
+    {
+      "version": 1,
+      "type": "window",
+      "query": "# Serão listados somente documentos que não estão em uma pasta\n\nquery {\n  documents(limit: 60, page: 1) {\n    total\n    data {\n      id\n      name\n      refusable\n      sortable\n      created_at\n      signatures {\n        public_id\n        name\n        email\n        created_at\n        action { name }\n        link { short_link }\n        user { id name email }\n        viewed { created_at }\n        signed { created_at }\n        rejected { created_at }\n      }\n      files { original signed }\n    }\n  }\n}\n",
+      "apiUrl": "{{endpointURL}}",
+      "variables": "{}",
+      "subscriptionUrl": "",
+      "headers": [
+        { "key": "Authorization", "value": "Bearer SEU_TOKEN_DE_API" },
+        { "key": "", "value": "" }
+      ],
+      "windowName": "Listar documentos",
+      "preRequestScript": "",
+      "preRequestScriptEnabled": false,
+      "id": "38a2e6bf-98e4-4067-83ce-89a1ecfa0270",
+      "created_at": 1572447004967,
+      "updated_at": 1572447004967
+    },
+    {
+      "version": 1,
+      "type": "window",
+      "query": "mutation {\n  deleteDocument(id: \"\")\n}",
+      "apiUrl": "{{endpointURL}}",
+      "variables": "{}",
+      "subscriptionUrl": "",
+      "headers": [
+        { "key": "Authorization", "value": "Bearer SEU_TOKEN_DE_API" },
+        { "key": "", "value": "" }
+      ],
+      "windowName": "Excluir documento",
+      "preRequestScript": "",
+      "preRequestScriptEnabled": false,
+      "id": "3083fa31-51c9-4648-92f4-96ac131a1e46",
+      "created_at": 1572447004966,
+      "updated_at": 1572447004966
+    },
+    {
+      "version": 1,
+      "type": "window",
+      "query": "# TODO: Falta implementar algo do tipo: signDocument(id: \"\")\n",
+      "apiUrl": "{{endpointURL}}",
+      "variables": "{}",
+      "subscriptionUrl": "",
+      "headers": [
+        { "key": "Authorization", "value": "Bearer SEU_TOKEN_DE_API" },
+        { "key": "", "value": "" }
+      ],
+      "windowName": "Assinar documento",
+      "preRequestScript": "",
+      "preRequestScriptEnabled": false,
+      "id": "b29083d7-6117-4ad8-980c-be95f912563e",
+      "created_at": 1572447004965,
+      "updated_at": 1572447004965
+    },
+    {
+      "version": 1,
+      "type": "window",
+      "query": "mutation CreateFolderMutation($folder: FolderInput!) {\n  createFolder(folder: $folder) {\n    id\n    name\n    type\n    created_at\n  }\n}",
+      "apiUrl": "{{endpointURL}}",
+      "variables": "{\n  \"folder\": {\n    \"name\": \"Contratos assinados\"\n  }\n}",
+      "subscriptionUrl": "",
+      "headers": [
+        { "key": "Authorization", "value": "Bearer SEU_TOKEN_DE_API" },
+        { "key": "", "value": "" }
+      ],
+      "windowName": "Criar pasta",
+      "preRequestScript": "",
+      "preRequestScriptEnabled": false,
+      "id": "6e7438a0-a8ca-482f-b756-7acb374af273",
+      "created_at": 1572447004964,
+      "updated_at": 1572447004964
+    },
+    {
+      "version": 1,
+      "type": "window",
+      "query": "query {\n  folder(id: \"\") {\n    id\n    name\n    type\n    created_at\n  }\n}",
+      "apiUrl": "{{endpointURL}}",
+      "variables": "{}",
+      "subscriptionUrl": "",
+      "headers": [
+        { "key": "Authorization", "value": "Bearer SEU_TOKEN_DE_API" },
+        { "key": "", "value": "" }
+      ],
+      "windowName": "Resgatar pasta",
+      "preRequestScript": "",
+      "preRequestScriptEnabled": false,
+      "id": "45aab36b-afd0-472f-867d-ae5962a28f44",
+      "created_at": 1572447004963,
+      "updated_at": 1572447004963
+    },
+    {
+      "version": 1,
+      "type": "window",
+      "query": "query {\n  folders(limit: 60, page: 1) {\n    total\n    data {\n      id\n      name\n      type\n      created_at\n    }\n}\n",
+      "apiUrl": "{{endpointURL}}",
+      "variables": "{}",
+      "subscriptionUrl": "",
+      "headers": [
+        { "key": "Authorization", "value": "Bearer SEU_TOKEN_DE_API" },
+        { "key": "", "value": "" }
+      ],
+      "windowName": "Listar pastas",
+      "preRequestScript": "",
+      "preRequestScriptEnabled": false,
+      "id": "7c4152a5-af44-40f3-8ff1-c1d79f37716d",
+      "created_at": 1572447004962,
+      "updated_at": 1572447004962
+    },
+    {
+      "version": 1,
+      "type": "window",
+      "query": "mutation {\n  deleteFolder(id: \"\")\n}",
+      "apiUrl": "{{endpointURL}}",
+      "variables": "{}",
+      "subscriptionUrl": "",
+      "headers": [
+        { "key": "Authorization", "value": "Bearer SEU_TOKEN_DE_API" },
+        { "key": "", "value": "" }
+      ],
+      "windowName": "Excluir pasta",
+      "preRequestScript": "",
+      "preRequestScriptEnabled": false,
+      "id": "4fcd4d63-bf01-4d9f-9442-c98097b6dbc0",
+      "created_at": 1572447004961,
+      "updated_at": 1572447004961
+    },
+    {
+      "version": 1,
+      "type": "window",
+      "query": "mutation {\n  moveDocumentToFolder(folder_id: \"\", document_id: \"\")\n}",
+      "apiUrl": "{{endpointURL}}",
+      "variables": "{}",
+      "subscriptionUrl": "",
+      "headers": [
+        { "key": "Authorization", "value": "Bearer SEU_TOKEN_DE_API" },
+        { "key": "", "value": "" }
+      ],
+      "windowName": "Mover documento para pasta",
+      "preRequestScript": "",
+      "preRequestScriptEnabled": false,
+      "id": "faf8eba6-23bd-4328-9d0e-3470b07296d1",
+      "created_at": 1572447004960,
+      "updated_at": 1572447004960
+    },
+    {
+      "version": 1,
+      "type": "window",
+      "query": "query {\n  documentsByFolder(folder_id: \"\", limit: 60, page: 1) {\n    total\n    data {\n      id\n      name\n      created_at\n      files { original signed }\n      signatures {\n        public_id\n        name\n        email\n        action { name }\n        viewed { created_at }\n        signed { created_at }\n        rejected { created_at }\n      }\n    }\n  }\n}",
+      "apiUrl": "{{endpointURL}}",
+      "variables": "{}",
+      "subscriptionUrl": "",
+      "headers": [
+        { "key": "Authorization", "value": "Bearer SEU_TOKEN_DE_API" },
+        { "key": "", "value": "" }
+      ],
+      "windowName": "Listar documentos de pasta",
+      "preRequestScript": "",
+      "preRequestScriptEnabled": false,
+      "id": "a38c81b4-db7a-449c-a8c6-c078ca0d0a39",
+      "created_at": 1572447004959,
+      "updated_at": 1572447004959
+    }
+  ],
+  "created_at": 1572439904658,
+  "updated_at": 1572459372053,
+  "id": 1
+}

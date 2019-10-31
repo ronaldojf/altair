@@ -79,7 +79,7 @@ export class AppComponent implements OnDestroy {
     private donationService: DonationService,
     private electronApp: ElectronAppService,
     private keybinder: KeybinderService,
-    private pluginRegistry: PluginRegistryService,
+    private pluginRegistry: PluginRegistryService
   ) {
     this.settings$ = this.store.pipe(select('settings')).pipe(distinctUntilChanged());
     this.collection$ = this.store.select('collection');
@@ -163,6 +163,8 @@ export class AppComponent implements OnDestroy {
       untilDestroyed(this)
     )
     .subscribe(data => {
+      this.toggleCollections();
+
       if (data.settings.enableExperimental) {
         this.pluginRegistry.getPlugin('altair-graphql-plugin-graphql-explorer', { version: '0.0.6' });
         // this.pluginRegistry.getPlugin('altair-graphql-plugin-graphql-explorer', {

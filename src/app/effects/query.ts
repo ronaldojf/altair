@@ -102,7 +102,6 @@ export class QueryEffects {
 
                 // If the URL is not set or is invalid, just return
                 if (!url || !validUrl.isUri(url)) {
-
                   this.notifyService.error('The URL is invalid!');
                   this.store.dispatch(new layoutActions.StopLoadingAction(response.windowId));
                   return observableEmpty();
@@ -224,9 +223,9 @@ export class QueryEffects {
         const url = this.environmentService.hydrate(data.payload.url);
         // If the URL is not valid
         if (!validUrl.isUri(url)) {
-            this.notifyService.error('The URL is invalid!');
+          this.notifyService.error('The URL is invalid!');
         } else {
-          this.notifyService.success('URL has been set.');
+          // this.notifyService.success('URL has been set.');
         }
 
         return observableEmpty();

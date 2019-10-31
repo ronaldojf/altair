@@ -36,6 +36,7 @@ import { GqlService, NotifyService, PluginRegistryService } from '../../services
 import { Observable, empty as observableEmpty, combineLatest } from 'rxjs';
 import { untilDestroyed } from 'ngx-take-until-destroy';
 import { debug } from 'app/utils/logger';
+import config from '../../config';
 
 @Component({
   selector: 'app-window',
@@ -220,6 +221,24 @@ export class WindowComponent implements OnInit, OnDestroy {
         .subscribe(plugins => {
           this.plugins = plugins;
         });
+      }
+
+      const currentWindow = data.windows[this.windowId];
+      let authorizationHeader: { i: number, val: string };
+      if (currentWindow.variables.variables && (currentWindow.variables.variables !== '{}' || currentWindow.variables.files.length > 0)) {
+        this.toggleVariableDialog(true);
+      }
+      Object.values(data.windows).forEach(_window => {
+        const i = _window.headers.findIndex(h => /Authorization/i.test(h.key));
+        if (i >= 0 && config.defaultHeaders.Authorization !== _window.headers[i].value) {
+          authorizationHeader = { i: i, val: _window.headers[i].value };
+          return;
+        }
+      });
+      if (authorizationHeader) {
+        this.store.dispatch(new headerActions.EditHeaderValueAction(authorizationHeader, this.windowId));
+      } else {
+        this.toggleHeader(true);
       }
     });
   }

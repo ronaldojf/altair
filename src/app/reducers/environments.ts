@@ -1,6 +1,7 @@
 import { Action } from '@ngrx/store';
 
 import * as environmentsAction from '../actions/environments/environments';
+import config from '../config';
 
 export interface EnvironmentState {
   id: string;
@@ -22,8 +23,8 @@ export const initialEnvironmentState: EnvironmentState = {
 
 export const initialState: State = {
   base: { ...initialEnvironmentState },
-  subEnvironments: [],
-  activeSubEnvironment: null
+  subEnvironments: config.initialData.subEnvironments || [],
+  activeSubEnvironment: config.initialData.activeEnvironment || null
 };
 
 export function environmentsReducer(state = initialState, action: environmentsAction.Action): State {

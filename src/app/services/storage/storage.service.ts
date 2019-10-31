@@ -1,14 +1,17 @@
 import { Injectable } from '@angular/core';
 import Dexie from 'dexie';
 import { IQueryCollection } from 'app/reducers/collection/collection';
+import * as initialCollection from 'app/autentique.collection.json';
 
 @Injectable()
 export class StorageService extends Dexie {
   queryCollections: Dexie.Table<IQueryCollection, number>;
 
   constructor() {
+    new Dexie('AltairDB').delete().catch(() => {}); // To be easily able to go back to the set defaults
     super('AltairDB');
     this.schema();
+    this.queryCollections.add(initialCollection.default);
   }
 
   schema() {

@@ -26,6 +26,7 @@ import { reducer, metaReducers, reducerToken, reducerProvider } from './reducers
 import { QueryEffects } from './effects/query';
 import { WindowsEffects } from './effects/windows';
 import { QueryCollectionEffects } from './effects/query-collection';
+import { HeadersEffects } from './effects/headers';
 
 import { DirectivesModule } from './directives';
 import { ComponentModule } from './components';
@@ -111,7 +112,7 @@ const providers = [
     SmartInputModule,
     DirectivesModule,
     StoreModule.forRoot(reducerToken, { metaReducers }),
-    EffectsModule.forRoot([ QueryEffects, WindowsEffects, QueryCollectionEffects ]),
+    EffectsModule.forRoot([ QueryEffects, WindowsEffects, QueryCollectionEffects, HeadersEffects ]),
     StoreDevtoolsModule.instrument(),
     ToastrModule.forRoot({
       newestOnTop: false,

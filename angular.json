@@ -54,7 +54,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "altair:build"
+            "browserTarget": "altair:build",
+            "port": 9000
           },
           "configurations": {
             "production": {

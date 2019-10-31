@@ -28,12 +28,12 @@ export class GlobalErrorHandler implements ErrorHandler {
       });
       debug.error('Application error:', errorMessage);
       notifyService.error(`An error occured: ${errorMessage}`);
-      notifyService.warning(`If you think this is a bug, click here to report the bug.`, 'Altair', {
-        disableTimeOut: true,
-        data: {
-          url: issueUrl,
-        }
-      });
+      // notifyService.warning(`If you think this is a bug, click here to report the bug.`, 'Altair', {
+      //   disableTimeOut: true,
+      //   data: {
+      //     url: issueUrl,
+      //   }
+      // });
     }
     // appRef.tick();
   }

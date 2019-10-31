@@ -1,14 +1,15 @@
 import isElectron from './utils/is_electron';
 
 const isTranslateMode = window['__ALTAIR_TRANSLATE__'];
+const defaultHeaders = { 'Authorization': 'Bearer SEU_TOKEN_DE_API' };
 
 export default {
   donation: {
     url: 'https://opencollective.com/altair/donate',
     action_count_threshold: 50
   },
-  ga: 'UA-41432833-6',
-  add_query_depth_limit: 3,
+  ga: '',
+  add_query_depth_limit: 4,
   tab_size: 2,
   max_windows: isElectron ? 50 : 15,
   default_language: isTranslateMode ? 'ach-UG' : 'en-US',
@@ -33,13 +34,24 @@ export default {
   defaultTheme: 'matchMedia' in window && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light',
   themes: ['light', 'dark'],
   isTranslateMode,
+  defaultHeaders,
   isWebApp: window['__ALTAIR_WEB_APP__'],
   initialData: {
-    url: window['__ALTAIR_ENDPOINT_URL__'] || '',
+    url: window['__ALTAIR_ENDPOINT_URL__'] || '{{endpointURL}}',
     subscriptionsEndpoint: window['__ALTAIR_SUBSCRIPTIONS_ENDPOINT__'] || '',
     query: window['__ALTAIR_INITIAL_QUERY__'] || '',
     variables: window['__ALTAIR_INITIAL_VARIABLES__'] || '',
-    headers: window['__ALTAIR_INITIAL_HEADERS__'],
+    headers: window['__ALTAIR_INITIAL_HEADERS__'] || defaultHeaders,
     preRequestScript: window['__ALTAIR_INITIAL_PRE_REQUEST_SCRIPT__'],
+    activeEnvironment: '1',
+    subEnvironments: [{
+      id: '1',
+      title: 'Sandbox',
+      variablesJson: '{\n  "endpointURL": "https://sandbox.autentique.com.br/v2/graphql"\n}'
+    }, {
+      id: '2',
+      title: 'Production',
+      variablesJson: '{\n  "endpointURL": "https://api.autentique.com.br/v2/graphql"\n}'
+    }]
   }
 };

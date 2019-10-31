@@ -134,7 +134,7 @@ export const getFullUrl = (url: string) => {
     return url;
   }
 
-  if (!validUrl.isUri(url)) {
+  if (!validUrl.isUri(url) && !/^{{.+}}$/.test(url)) {
     if (url.trim() === '*') {
       return location.href;
     }
