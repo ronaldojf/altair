@@ -4,7 +4,8 @@ const isTranslateMode = window['__ALTAIR_TRANSLATE__'];
 const defaultHeaders = {
   'Authorization': 'Bearer SUA_CHAVE_DE_API',
   'Content-Type': 'application/json',
-  'Accept': 'application/json'
+  'Accept': 'application/json',
+  'X-Requested-With': 'application/graphql'
 };
 
 export default {
