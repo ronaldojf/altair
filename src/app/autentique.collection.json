@@ -48,7 +48,7 @@
     {
       "version": 1,
       "type": "window",
-      "query": "query {\n  document(id: \"\") {\n    id\n    name\n    refusable\n    sortable\n    created_at\n    files { original signed }\n    signatures {\n      public_id\n      name\n      email\n      created_at\n      action { name }\n      link { short_link }\n      user { id name email }\n      email_events {\n        sent\n        opened\n        delivered\n        refused\n        reason\n      }\n      viewed { ...event }\n      signed { ...event }\n      rejected { ...event }\n    }\n  }\n}\n\nfragment event on Event {\n  ipv4\n  ipv6\n  reason\n  created_at\n  geolocation {\n    country\n    countryISO\n    state\n    stateISO\n    city\n    zipcode\n    latitude\n    longitude\n  }\n}",
+      "query": "query {\n  document(id: \"ID_DO_DOCUMENTO\") {\n    id\n    name\n    refusable\n    sortable\n    created_at\n    files { original signed }\n    signatures {\n      public_id\n      name\n      email\n      created_at\n      action { name }\n      link { short_link }\n      user { id name email }\n      email_events {\n        sent\n        opened\n        delivered\n        refused\n        reason\n      }\n      viewed { ...event }\n      signed { ...event }\n      rejected { ...event }\n    }\n  }\n}\n\nfragment event on Event {\n  ipv4\n  ipv6\n  reason\n  created_at\n  geolocation {\n    country\n    countryISO\n    state\n    stateISO\n    city\n    zipcode\n    latitude\n    longitude\n  }\n}",
       "apiUrl": "{{endpointURL}}",
       "variables": "{}",
       "subscriptionUrl": "",
@@ -90,7 +90,7 @@
     {
       "version": 1,
       "type": "window",
-      "query": "mutation {\n  deleteDocument(id: \"\")\n}",
+      "query": "mutation {\n  deleteDocument(id: \"ID_DO_DOCUMENTO\")\n}",
       "apiUrl": "{{endpointURL}}",
       "variables": "{}",
       "subscriptionUrl": "",
@@ -111,7 +111,7 @@
     {
       "version": 1,
       "type": "window",
-      "query": "# TODO: Falta implementar algo do tipo: signDocument(id: \"\")\n",
+      "query": "# TODO: Falta implementar algo do tipo: signDocument(id: \"ID_DO_DOCUMENTO\")\n",
       "apiUrl": "{{endpointURL}}",
       "variables": "{}",
       "subscriptionUrl": "",
@@ -153,7 +153,7 @@
     {
       "version": 1,
       "type": "window",
-      "query": "query {\n  folder(id: \"\") {\n    id\n    name\n    type\n    created_at\n  }\n}",
+      "query": "query {\n  folder(id: \"ID_DA_PASTA\") {\n    id\n    name\n    type\n    created_at\n  }\n}",
       "apiUrl": "{{endpointURL}}",
       "variables": "{}",
       "subscriptionUrl": "",
@@ -195,7 +195,7 @@
     {
       "version": 1,
       "type": "window",
-      "query": "mutation {\n  deleteFolder(id: \"\")\n}",
+      "query": "mutation {\n  deleteFolder(id: \"ID_DA_PASTA\")\n}",
       "apiUrl": "{{endpointURL}}",
       "variables": "{}",
       "subscriptionUrl": "",
@@ -216,7 +216,7 @@
     {
       "version": 1,
       "type": "window",
-      "query": "mutation {\n  moveDocumentToFolder(folder_id: \"\", document_id: \"\")\n}",
+      "query": "mutation {\n  moveDocumentToFolder(folder_id: \"ID_DA_PASTA\", document_id: \"ID_DO_DOCUMENTO\")\n}",
       "apiUrl": "{{endpointURL}}",
       "variables": "{}",
       "subscriptionUrl": "",
@@ -237,7 +237,7 @@
     {
       "version": 1,
       "type": "window",
-      "query": "query {\n  documentsByFolder(folder_id: \"\", limit: 60, page: 1) {\n    total\n    data {\n      id\n      name\n      created_at\n      files { original signed }\n      signatures {\n        public_id\n        name\n        email\n        action { name }\n        viewed { created_at }\n        signed { created_at }\n        rejected { created_at }\n      }\n    }\n  }\n}",
+      "query": "query {\n  documentsByFolder(folder_id: \"ID_DA_PASTA\", limit: 60, page: 1) {\n    total\n    data {\n      id\n      name\n      created_at\n      files { original signed }\n      signatures {\n        public_id\n        name\n        email\n        action { name }\n        viewed { created_at }\n        signed { created_at }\n        rejected { created_at }\n      }\n    }\n  }\n}",
       "apiUrl": "{{endpointURL}}",
       "variables": "{}",
       "subscriptionUrl": "",
