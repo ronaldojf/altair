@@ -111,7 +111,7 @@
     {
       "version": 1,
       "type": "window",
-      "query": "# TODO: Falta implementar algo do tipo: signDocument(id: \"ID_DO_DOCUMENTO\")\n",
+      "query": "mutation {\n  signDocument(id: \"ID_DO_DOCUMENTO\")\n}",
       "apiUrl": "{{endpointURL}}",
       "variables": "{}",
       "subscriptionUrl": "",
@@ -216,7 +216,7 @@
     {
       "version": 1,
       "type": "window",
-      "query": "mutation {\n  moveDocumentToFolder(folder_id: \"ID_DA_PASTA\", document_id: \"ID_DO_DOCUMENTO\")\n}",
+      "query": "mutation {\n  moveDocumentToFolder(\n    document_id: \"ID_DO_DOCUMENTO\",\n    folder_id: \"ID_DA_PASTA_DE_DESTINO\"\n  )\n}",
       "apiUrl": "{{endpointURL}}",
       "variables": "{}",
       "subscriptionUrl": "",
