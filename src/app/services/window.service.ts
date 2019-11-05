@@ -198,7 +198,6 @@ export class WindowService {
 
         if (data.apiUrl) {
           this.store.dispatch(new queryActions.SetUrlAction({ url: data.apiUrl }, windowId));
-          this.store.dispatch(new queryActions.SendIntrospectionQueryRequestAction(windowId));
         }
 
         if (data.query) {

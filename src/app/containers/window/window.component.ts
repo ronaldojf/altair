@@ -237,6 +237,7 @@ export class WindowComponent implements OnInit, OnDestroy {
       });
       if (authorizationHeader) {
         this.store.dispatch(new headerActions.EditHeaderValueAction(authorizationHeader, this.windowId));
+        this.store.dispatch(new queryActions.SendIntrospectionQueryRequestAction(this.windowId));
       } else {
         this.toggleHeader(true);
       }

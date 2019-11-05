@@ -222,12 +222,8 @@ export class AppComponent implements OnDestroy {
       first(),
       untilDestroyed(this),
     )
-    .subscribe(({ url, windowId }) => {
+    .subscribe(({ windowId }) => {
       this.store.dispatch(new windowsMetaActions.SetActiveWindowIdAction({ windowId }));
-
-      if (url) {
-        this.store.dispatch(new queryActions.SendIntrospectionQueryRequestAction(windowId));
-      }
     });
   }
 
