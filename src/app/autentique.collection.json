@@ -174,7 +174,7 @@
     {
       "version": 1,
       "type": "window",
-      "query": "query {\n  folders(limit: 60, page: 1) {\n    total\n    data {\n      id\n      name\n      type\n      created_at\n    }\n}\n",
+      "query": "query {\n  folders(limit: 60, page: 1) {\n    total\n    data {\n      id\n      name\n      type\n      created_at\n    }\n  }\n}",
       "apiUrl": "{{endpointURL}}",
       "variables": "{}",
       "subscriptionUrl": "",
