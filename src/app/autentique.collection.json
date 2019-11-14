@@ -12,9 +12,6 @@
       "subscriptionUrl": "",
       "headers": [
         { "key": "Authorization", "value": "Bearer SUA_CHAVE_DE_API" },
-        { "key": "Content-Type", "value": "application/json" },
-        { "key": "Accept", "value": "application/json" },
-        { "key": "X-Requested-With", "value": "application/graphql" },
         { "key": "", "value": "" }
       ],
       "windowName": "Criar documento",
@@ -33,9 +30,6 @@
       "subscriptionUrl": "",
       "headers": [
         { "key": "Authorization", "value": "Bearer SUA_CHAVE_DE_API" },
-        { "key": "Content-Type", "value": "application/json" },
-        { "key": "Accept", "value": "application/json" },
-        { "key": "X-Requested-With", "value": "application/graphql" },
         { "key": "", "value": "" }
       ],
       "windowName": "Resgatar documento",
@@ -54,9 +48,6 @@
       "subscriptionUrl": "",
       "headers": [
         { "key": "Authorization", "value": "Bearer SUA_CHAVE_DE_API" },
-        { "key": "Content-Type", "value": "application/json" },
-        { "key": "Accept", "value": "application/json" },
-        { "key": "X-Requested-With", "value": "application/graphql" },
         { "key": "", "value": "" }
       ],
       "windowName": "Listar documentos",
@@ -75,9 +66,6 @@
       "subscriptionUrl": "",
       "headers": [
         { "key": "Authorization", "value": "Bearer SUA_CHAVE_DE_API" },
-        { "key": "Content-Type", "value": "application/json" },
-        { "key": "Accept", "value": "application/json" },
-        { "key": "X-Requested-With", "value": "application/graphql" },
         { "key": "", "value": "" }
       ],
       "windowName": "Excluir documento",
@@ -96,9 +84,6 @@
       "subscriptionUrl": "",
       "headers": [
         { "key": "Authorization", "value": "Bearer SUA_CHAVE_DE_API" },
-        { "key": "Content-Type", "value": "application/json" },
-        { "key": "Accept", "value": "application/json" },
-        { "key": "X-Requested-With", "value": "application/graphql" },
         { "key": "", "value": "" }
       ],
       "windowName": "Assinar documento",
@@ -117,9 +102,6 @@
       "subscriptionUrl": "",
       "headers": [
         { "key": "Authorization", "value": "Bearer SUA_CHAVE_DE_API" },
-        { "key": "Content-Type", "value": "application/json" },
-        { "key": "Accept", "value": "application/json" },
-        { "key": "X-Requested-With", "value": "application/graphql" },
         { "key": "", "value": "" }
       ],
       "windowName": "Criar pasta",
@@ -138,9 +120,6 @@
       "subscriptionUrl": "",
       "headers": [
         { "key": "Authorization", "value": "Bearer SUA_CHAVE_DE_API" },
-        { "key": "Content-Type", "value": "application/json" },
-        { "key": "Accept", "value": "application/json" },
-        { "key": "X-Requested-With", "value": "application/graphql" },
         { "key": "", "value": "" }
       ],
       "windowName": "Resgatar pasta",
@@ -159,9 +138,6 @@
       "subscriptionUrl": "",
       "headers": [
         { "key": "Authorization", "value": "Bearer SUA_CHAVE_DE_API" },
-        { "key": "Content-Type", "value": "application/json" },
-        { "key": "Accept", "value": "application/json" },
-        { "key": "X-Requested-With", "value": "application/graphql" },
         { "key": "", "value": "" }
       ],
       "windowName": "Listar pastas",
@@ -180,9 +156,6 @@
       "subscriptionUrl": "",
       "headers": [
         { "key": "Authorization", "value": "Bearer SUA_CHAVE_DE_API" },
-        { "key": "Content-Type", "value": "application/json" },
-        { "key": "Accept", "value": "application/json" },
-        { "key": "X-Requested-With", "value": "application/graphql" },
         { "key": "", "value": "" }
       ],
       "windowName": "Excluir pasta",
@@ -201,9 +174,6 @@
       "subscriptionUrl": "",
       "headers": [
         { "key": "Authorization", "value": "Bearer SUA_CHAVE_DE_API" },
-        { "key": "Content-Type", "value": "application/json" },
-        { "key": "Accept", "value": "application/json" },
-        { "key": "X-Requested-With", "value": "application/graphql" },
         { "key": "", "value": "" }
       ],
       "windowName": "Mover documento para pasta",
@@ -222,9 +192,6 @@
       "subscriptionUrl": "",
       "headers": [
         { "key": "Authorization", "value": "Bearer SUA_CHAVE_DE_API" },
-        { "key": "Content-Type", "value": "application/json" },
-        { "key": "Accept", "value": "application/json" },
-        { "key": "X-Requested-With", "value": "application/graphql" },
         { "key": "", "value": "" }
       ],
       "windowName": "Listar documentos de pasta",
