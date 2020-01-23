@@ -49,10 +49,6 @@ export default {
     activeEnvironment: '1',
     subEnvironments: [{
       id: '1',
-      title: 'Sandbox',
-      variablesJson: '{\n  "endpointURL": "https://api.autentique.com.br/v2/graphql/sandbox"\n}'
-    }, {
-      id: '2',
       title: 'Production',
       variablesJson: '{\n  "endpointURL": "https://api.autentique.com.br/v2/graphql"\n}'
     }]
